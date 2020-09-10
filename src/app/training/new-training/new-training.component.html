@@ -17,7 +17,11 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button type="submit" mat-button>
+      <button
+        type="submit"
+        mat-button
+        (click)="onStartTraining()"
+      >
         Start
       </button>
     </mat-card-actions>
