@@ -1,3 +1,6 @@
+<mat-form-field>
+  <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
 <mat-table [dataSource]="dataSource" matSort>
 
   <ng-container matColumnDef="date">
@@ -21,7 +24,7 @@
   </ng-container>
 
   <ng-container matColumnDef="state">
-    <mat-header-cell *matHeaderCellDef>State</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
     <mat-cell *matCellDef="let element">{{ element.state }}</mat-cell>
   </ng-container>
 
