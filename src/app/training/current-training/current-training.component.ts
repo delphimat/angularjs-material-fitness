@@ -23,7 +23,7 @@ export class CurrentTrainingComponent implements OnInit {
     const step = this.trainingService.getRunningExercise().duration / 100 * 1000;
 
     this.timer = setInterval(() => {
-      this.progress = this.progress + 5
+      this.progress = this.progress + 1
       if (100 <= this.progress) {
         this.trainingService.completeExercise();
         clearInterval(this.timer);
@@ -33,12 +33,13 @@ export class CurrentTrainingComponent implements OnInit {
 
   onStop() {
     clearInterval(this.timer);
-    const dialogRef = this.dialog.open(StopTrainingComponent, {data: {
+    const dialogRef = this.dialog.open(StopTrainingComponent, {
+      data: {
         progress: this.progress
       }});
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result == true) {
+      if (result) {
           this.trainingService.cancelExercise(this.progress);
       } else {
         this.startOrResumeTimer();

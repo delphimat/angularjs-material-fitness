@@ -22,7 +22,6 @@ export class TrainingComponent implements OnInit {
           } else {
             this.onGoingTraining = false;
           }
-
         }
     })
   }

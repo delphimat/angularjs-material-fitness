@@ -14,8 +14,7 @@ export class TrainingService {
   ];
 
   private runningExercise: Exercise;
-
-  private completedExercises: Exercise[];
+  private completedExercises: Exercise[] = [];
 
   public getAvailableExercises() {
     return this.availableExercices.slice();
@@ -49,9 +48,14 @@ export class TrainingService {
     });
 
     this.runningExercise = null;
+    this.exerciseChanged.next(null);
   }
 
   getRunningExercise() {
     return {...this.runningExercise } ;
+  }
+
+  public getCompletedExercises() {
+    return this.completedExercises.slice();
   }
 }
