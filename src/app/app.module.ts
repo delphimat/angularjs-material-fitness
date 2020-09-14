@@ -27,6 +27,7 @@ import {TrainingService} from "./training/training.service";
 
 import { environment } from "../environments/environment";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {UiService} from "./auth/shared/ui.service";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     AngularFireAuthModule
 
   ],
-  providers: [AuthService, TrainingService],
+  providers: [AuthService, TrainingService, UiService],
   bootstrap: [AppComponent],
   entryComponents: [StopTrainingComponent]
 })
