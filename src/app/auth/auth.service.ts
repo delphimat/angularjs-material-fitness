@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {User} from "./user.model";
 import {AuthData} from "./auth-data.model";
 import {TrainingService} from "../training/training.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable()
 export class AuthService {
@@ -16,7 +17,8 @@ export class AuthService {
   constructor(
     private router: Router,
     private afauth: AngularFireAuth,
-    private trainingService: TrainingService
+    private trainingService: TrainingService,
+    private snackbar: MatSnackBar
     ) {
 
   }
@@ -44,7 +46,9 @@ export class AuthService {
         console.log(result);
       })
       .catch(error => {
-        console.log(error)
+        this.snackbar.open(error.message, null, {
+          duration: 3000
+        });
       })
     ;
   }
@@ -55,7 +59,9 @@ export class AuthService {
         console.log(result);
       })
       .catch(error => {
-        console.log(error)
+        this.snackbar.open(error.message, null, {
+          duration: 3000
+        });
       })
     ;
   }

@@ -26,6 +26,7 @@ import {AuthService} from "./auth/auth.service";
 import {TrainingService} from "./training/training.service";
 
 import { environment } from "../environments/environment";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
